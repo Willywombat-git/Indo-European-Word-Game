@@ -239,11 +239,10 @@
         game.style.display = 'none';
         end_screen.style.display = 'none';
 
-        // Select the "Load More" button
         const startButton = document.getElementById('startButton');
     
         // Add a click event listener
-        startButton.addEventListener('click', function (event) {
+        startButton.addEventListener('click', function () {
             console.log('Game Started.');
             opening.classList.add('fade-out');
             
@@ -254,16 +253,13 @@
             game.classList.add('fade-in');
 
             main_game();
-
         });
     </script>
     
     <script>
-        function main_game(){            
+        function main_game(){
             console.log("Game Started")
             let points = 0;
-
-            let asked = []
 
             let hint_num = 0
 
@@ -313,22 +309,6 @@
 
             next()
 
-
-            answers.forEach(entry => {
-                console.log(`Proto: ${entry.proto}, Modern English: ${entry.modernEnglish.trim().toLowerCase()}`);
-            });
-
-            /* hint1.textContent = `Proto: ${answers[1].proto}`;
-            hint2.textContent = `Proto Lang: ${answers[1].protoLanguage}`;
-            hint3.textContent = `Old Lang: ${answers[1].oldLanguage}`;
-            hint4.textContent = `Modern: ${answers[1].modernEnglish}`; */
-
-            /* for(var i =0; i<=answers.length; i++ ){
-                if(asked.length != answers.length){
-                    hint1.textContent = `Proto: ${answers[1].proto}`;
-                }
-            } */
-
             function check_answer(){
                 console.log(question)
                 console.log(answers.length)
@@ -359,7 +339,7 @@
                     }
                 }else{
                     alert("Please enter a word.")
-                    console.log("empty")
+                    console.log("input box empty")
                     return
                 }
             }
