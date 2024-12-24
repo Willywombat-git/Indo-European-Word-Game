@@ -94,74 +94,152 @@
             }
         }
 
-/* Game container */
+        /* Game container */
         #game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            padding: 30px;
+            background-color: #212121; /* Dark neutral background */
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Smooth shadow */
+            margin: 20px auto;
+            color: #e3e3e3; /* Neutral white for text */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Score container */
+        #game #points {
+            font-size: 30px;
+            font-weight: 700;
+            color: #f8fcff; 
+            background: #0f4c75; 
+            padding: 10px 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Hints in the game section */
+        #game #hints {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            color: #e5f4ff; 
+        }
+
+        #hint1, #hint2, #hint3, #hint4 {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #2a2a2a; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle depth */
+            visibility: hidden; /* Hides the hint initially */
+            opacity: 0; /* Ensures no visual box */
+            transition: visibility 0.3s, opacity 0.3s; /* Smooth transition when displayed */
+        }
+
+        /* Display hints in the game section only when they have content */
+        #hint1:not(:empty),
+        #hint2:not(:empty),
+        #hint3:not(:empty),
+        #hint4:not(:empty) {
+            visibility: visible; /* Makes the hint visible */
+            opacity: 1; /* Fades it in */
+        }
+
+        /* Input section */
+        #game #input_div {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 100vh;
-            padding: 20px;
-            background-color: #252537;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-            display: none; /* Hidden initially */
-            position: relative;
-        }
-
-        /* Score container */
-        #points {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 24px;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        /* Hints container */
-        #hints {
-            margin-bottom: 20px;
-            text-align: center;
-            color: #fff;
-        }
-
-        #hint1, #hint2, #hint3, #hint4{
-            font-size: 23px;
-            line-height: 1.6;
-        }
-
-        /* Input section */
-        #input_div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         /* Input field */
-        #input {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            width: 250px;
-            border-radius: 10px;
-            border: 1px solid #3a3a55;
-            background-color: #252537;
-            color: #fff;
+        #game #input {
+            padding: 15px 20px;
+            font-size: 18px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 1px solid #424242;
+            background-color: #2e2e2e; 
+            color: #e0e0e0;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6); /* Inset shadow for depth */
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            margin-right: 20px;
+            margin-left: 20px;
         }
-        #points {
-            padding: 10px;
-            height: 50px;
-            text-align: center;
+
+        #game #input:focus {
+            border-color: #145a88; 
+            outline: none;
+            box-shadow: 0 0 10px #124b72; /* Glow effect */
+        }
+
+        /* Buttons */
+       /* Enhanced Guess Button Styling */
+        #game .button {
+            width: 220px;
+            height: 55px;
             display: flex;
-            justify-content: center;
             align-items: center;
-
+            justify-content: center;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0f4c75, #2a7ab0); /* Gradient background */
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 12px; /* Rounded corners */
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Elevated shadow for depth */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for clarity */
         }
 
+        /* Hover effect for the button */
+        #game .button:hover {
+            background: linear-gradient(135deg, #145a88, #43a6be); /* Brighter gradient on hover */
+            box-shadow: 0 6px 14px rgba(25, 52, 71, 0.6); /* Softer shadow on hover */
+            transform: translateY(-1px);
+        }
+
+        /* Active effect for the button */
+        #game .button:active {
+            transform: scale(0.98); /* Slightly shrink on click */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7); /* Reduced shadow */
+            background: linear-gradient(135deg, #124b72, #297f94); /* Darker gradient on click */
+        }
+
+
+        /* Animations for the game section */
+        #game .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #game .fade-out {
+            animation: fadeIn 1s ease-in-out reverse;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>  
     <style>
         /* Fade-in animation */
@@ -212,6 +290,7 @@
                 Try to guess what the modern english word is with the least amount of translations. Most are Nouns. The lower the score the better.
             </p>
         </div>
+        
     
         <div id="game">
             <div id="score">
@@ -294,7 +373,15 @@
                 { proto: "néwos", meaning: "new", protoLanguage: "neudaz", oldLanguage: "*néwos", modernEnglish: "new" },
                 { proto: "gʷṓws", meaning: "cow", protoLanguage: "kōz", oldLanguage: "cū", modernEnglish: "cow" },
                 { proto: "ḱwṓ", meaning: "dog", protoLanguage: "hundaz", oldLanguage: "hund", modernEnglish: "dog" },
-                { proto: "dyḗws ph₂tḗr", meaning: "Zeus", protoLanguage: "Dzéus", oldLanguage: "Ζεύς", modernEnglish: "Zeus" }
+                { proto: "dyḗws ph₂tḗr", meaning: "Zeus", protoLanguage: "Dzéus", oldLanguage: "Ζεύς", modernEnglish: "Zeus" },
+                { proto: "bʰéh₂tēr", meaning: "brother", protoLanguage: "brōþēr", oldLanguage: "broþor", modernEnglish: "brother" },
+                { proto: "pṓds", meaning: "foot", protoLanguage: "pōz", oldLanguage: "fūs", modernEnglish: "foot" },
+                { proto: "h₁nómn̥", meaning: "name", protoLanguage: "namô", oldLanguage: "nama", modernEnglish: "name" },
+                { proto: "wódr̥", meaning: "water", protoLanguage: "watōr", oldLanguage: "wæter", modernEnglish: "water" },
+                { proto: "dómos", meaning: "house", protoLanguage: "domaz", oldLanguage: "hūs", modernEnglish: "house" },
+                { proto: "mr̥tós", meaning: "mortal", protoLanguage: "murtaz", oldLanguage: "morðor", modernEnglish: "mortal" },
+                { proto: "bʰélh₂-", meaning: "blossom", protoLanguage: "blōz", oldLanguage: "blōstma", modernEnglish: "blossom" },
+                { proto: "gʷémtos", meaning: "path", protoLanguage: "wēgaz", oldLanguage: "weg", modernEnglish: "path" }
             ];
             shuffle(answers);
             function shuffle(array){
@@ -372,6 +459,11 @@
             
 
             guess_button.addEventListener('click', check_answer);
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    check_answer();
+                }
+            });
 
         }
 
