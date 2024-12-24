@@ -22,7 +22,7 @@
 
 
         /* Introduction container */
-        .intro, #final {
+        .intro, #final, #final_word_text {
             text-align: center;
             font-size: 20px; /* Slightly larger font for readability */
             line-height: 1.8; /* Increased line spacing for better focus */
@@ -71,7 +71,7 @@
         }
 
         /* Align content in the center of the screen */
-        #opening, #end_screen, #word_bank{
+        #opening, #end_screen, #word_bank, #game, #final_word{
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -383,7 +383,10 @@
                 <br>
                 <a id="guess" class="button" href="#">Guess</a>
             </div>
-            
+            <p id="questions">1/5</p>
+        </div>
+        <div id="final_word">
+            <p id="final_word_text"></p>
         </div>
         <div id="end_screen">
             <p id="final"></p>
@@ -418,6 +421,7 @@
         word_bank.style.display = 'none';
         game.style.display = 'none';
         end_screen.style.display = 'none';
+        final_word.style.display = 'none';
 
         const startButton = document.getElementById('startButton');
     
@@ -453,7 +457,7 @@
                     game.style.display = 'flex';
                     game.classList.add('fade-in');
                     main_game(); 
-                }, 750);
+                }, 100);
             });
         }
 
@@ -464,12 +468,15 @@
             console.log("Game Started")
             let points = 0;
 
-            let hint_num = 0
+            let hint_num = 0;
 
             let correct = false;
 
-            let question = 0
+            let question = 0;
 
+            let rounds = 5;
+
+            const questions = document.getElementById("questions")
             const guess_button = document.getElementById("guess")
             const points_out = document.getElementById("points")
             points_out.textContent = `Start Guessing!`
@@ -501,8 +508,16 @@
                 console.log(question)
                 console.log(answers.length)
 
-                if(question == answers.length){
+                if(question == rounds){
                     showEndScreen(points);
+                    final_word.classList.add('fade-in');
+                    final_word.style.display = 'flex';
+                    document.getElementById('final_word_text').textContent = `${input.value.trim()} was correct!`; // Set the final message
+                    setTimeout(() => {
+                        final_word.classList.add('fade-out');
+                        final_word.style.display = 'none';
+
+                    }, 2000);
                 }
                 points_out.textContent = `Points: ${points}`
                 if(input.value.trim().toLowerCase() != ""){
@@ -510,6 +525,7 @@
                         console.log("Correct")
                         points_out.textContent = `${input.value.trim()} was correct!`
                         question ++
+                        questions.textContent = `${question+1}/${rounds}`
                         hint_num =0
                         hint1.textContent = ""
                         hint2.textContent = ""
@@ -554,6 +570,7 @@
                     hint4.textContent = `Modern English: ${answers[question].modernEnglish}`;
                     hint_num = 0
                     question ++;
+                    questions.textContent = `${question+1}/${rounds}`
                 }else if(true){}
             }
             
