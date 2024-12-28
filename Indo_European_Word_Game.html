@@ -342,7 +342,6 @@
             }
         }
 
-        /* Add this CSS to define the green highlight animation */
         @keyframes highlightGreen {
             0% { background-color: #0f4c75; }    /* Original color */
             50% { background-color: #28a745; }   /* Green color */
@@ -439,7 +438,7 @@
     
         // Add a click event listener
         startButton.addEventListener('click', function () {
-            console.log('Game Started.');
+            console.log('Game Started. (WordBank)');
             opening.classList.add('fade-out');
             
             opening.style.display = 'none';      // hide intro
@@ -477,7 +476,7 @@
     
     <script>
         function main_game(){
-            console.log("Game Started")
+            console.log("Main Game Started")
             let points = 0;
 
             let hint_num = 0;
@@ -517,21 +516,12 @@
             next()
 
             function check_answer(){
-                console.log(question)
+                console.log(hint_num)
+
+                /*console.log(question)
                 console.log(answers.length)
-
-                if(question == rounds){
-                    showEndScreen(points);
-                    final_word.classList.add('fade-in');
-                    final_word.style.display = 'flex';
-                    document.getElementById('final_word_text').textContent = `${input.value.trim()} was correct!`; // Set the final message
-                    setTimeout(() => {
-                        final_word.classList.add('fade-out');
-                        final_word.style.display = 'none';
-
-                    }, 2000);
-                }
-                points_out.textContent = `Points: ${points}`
+                console.log(input.value.trim().toLowerCase())
+                points_out.textContent = `Points: ${points}`*/
                 if(input.value.trim().toLowerCase() != ""){
                     if(input.value.trim().toLowerCase() == answers[question].modernEnglish.trim().toLowerCase()){
                         console.log("Correct")
@@ -555,10 +545,16 @@
                         points ++;
                         points_out.textContent = `Points: ${points}`
                         console.log("Incorrect")
-                        if(hint_num <4){
-                            next()
-                            return
+                        console.log(hint_num)
+                        if(hint_num == 4){
+                            question ++;
+                            questions.textContent = `${question+1}/${rounds}`
+                            hint_num = 0
+
                         }
+                        next()
+                        return
+                        
                     }
                 }else{
                     alert("Please enter a word.")
@@ -570,6 +566,18 @@
 
 
             function next(){
+                if(question == rounds){
+                    showEndScreen(points);
+                    final_word.classList.add('fade-in');
+                    final_word.style.display = 'flex';
+                    document.getElementById('final_word_text').textContent = `${input.value.trim()} was correct!`; // Set the final message
+                    setTimeout(() => {
+                        final_word.classList.add('fade-out');
+                        final_word.style.display = 'none';
+
+                    }, 2000);
+                    return
+                }
                 input.value = ""
 
                 if(hint_num == 0){
@@ -587,8 +595,8 @@
                     hint_num++
                 }else if(hint_num == 3){
                     hint4.textContent = `Modern English: ${answers[question].modernEnglish}`;
-                    hint_num = 0
-                    question ++;
+                    hint_num = 4
+                    //hint_num = 0
                     questions.textContent = `${question+1}/${rounds}`
                 }else if(true){}
             }
