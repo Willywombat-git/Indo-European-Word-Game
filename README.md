@@ -1,5 +1,5 @@
 # Indo-European-Word-Game
-It is a game about guessing the English counterpart to an Indo-European word in the fewest guesses possible. With each guess, the translation gets closer. It was inspired by Metazooa. This was a quick project I made for school. I am looking at refining the gameplay. I've spent way too much time updating this project.
+It is a game about guessing the English counterpart to an Indo-European word in the fewest guesses possible. With each guess, the translation gets closer. It was inspired by Metazooa. This was a quick project I made for school. I think I'm done with this project, but I'm open for suggestions. This is my first github project, so thanks for any feedback or support if you are inclined.
 
 # Running
 Just run the single HTML file with favicon to play.
