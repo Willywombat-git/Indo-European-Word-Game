@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Indo European Word Game</title>
@@ -9,44 +10,61 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a2e; /* Dark navy background for a softer contrast */
-            color: #dcdcdc; /* Light gray text for better readability */
+            background-color: #1a1a2e;
+            /* Dark navy background for a softer contrast */
+            color: #dcdcdc;
+            /* Light gray text for better readability */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center the content vertically */
-            min-height: 100vh; /* Ensure the body can expand vertically */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            overflow-y: auto; /* Enable vertical scrolling */
+            justify-content: center;
+            /* Center the content vertically */
+            min-height: 100vh;
+            /* Ensure the body can expand vertically */
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
         }
 
 
         /* Introduction container */
-        .intro, #final, #final_word_text {
+        .intro,
+        #final,
+        #final_word_text, 
+        #leaderboard {
             text-align: center;
-            font-size: 20px; /* Slightly larger font for readability */
-            line-height: 1.8; /* Increased line spacing for better focus */
+            font-size: 20px;
+            /* Slightly larger font for readability */
+            line-height: 1.8;
+            /* Increased line spacing for better focus */
             max-width: 700px;
             margin-bottom: 30px;
             padding: 25px;
-            background-color: #252537; /* Soft dark gray background for contrast */
-            color: #ffffff; /* Pure white text for clarity */
+            background-color: #252537;
+            /* Soft dark gray background for contrast */
+            color: #ffffff;
+            /* Pure white text for clarity */
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-            border: 1px solid #3a3a55; /* Subtle border for polish */
+            border: 1px solid #3a3a55;
+            /* Subtle border for polish */
         }
 
         /* General styles for the button */
         .button {
             align-items: center;
             justify-content: center;
-            display: flex; /* Flex for centering text */
+            display: flex;
+            /* Flex for centering text */
             width: 220px;
             height: 55px;
-            background-color: #0f4c75; /* Deep blue button color */
+            background-color: #0f4c75;
+            /* Deep blue button color */
             color: #ffffff;
             font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 18px; /* Larger font size for prominence */
+            font-size: 18px;
+            /* Larger font size for prominence */
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
@@ -59,19 +77,26 @@
 
         /* Hover effect for the button */
         .button:hover {
-            background-color: #145a88; /* Brighter blue on hover */
-            box-shadow: 0 6px 14px rgba(25, 52, 71, 0.6); /* Softer shadow on hover */
+            background-color: #145a88;
+            /* Brighter blue on hover */
+            box-shadow: 0 6px 14px rgba(25, 52, 71, 0.6);
+            /* Softer shadow on hover */
             transform: translateY(-1px);
         }
 
         /* Active effect for the button */
         .button:active {
             transform: translateY(0);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Return to original shadow */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            /* Return to original shadow */
         }
 
         /* Align content in the center of the screen */
-        #opening, #end_screen, #word_bank, #game, #final_word{
+        #opening,
+        #end_screen,
+        #word_bank,
+        #game,
+        #final_word {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -90,11 +115,59 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        #Name_Input_Container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px auto;
+        }
+
+        #Name_Input_Container #Name_Input {
+            padding: 15px 20px;
+            font-size: 18px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 1px solid #424242;
+            background-color: #1e1e1e;
+            /* Dark background */
+            color: #e0e0e0;
+            /* Light text */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+            /* Inset shadow for depth */
+            margin: 20px auto;
+            /* Centered with spacing */
+            border-color: #145a88;
+            /* Highlight border */
+            outline: none;
+            /* Remove default browser outline */
+            box-shadow: 0 0 10px #124b72;
+            /* Subtle glow */
+            transition: all 0.3s ease;
+            /* Smooth interaction feedback */
+        }
+
+        #Name_Input_Container #Name_Input:focus {
+            border: 1px solid #424242;
+            outline: none;
+            /* Remove default browser outline */
+            box-shadow: 0 0 0px #124b72;
+            /* Subtle glow */
+        }
+
 
         /* Game container */
         #game {
@@ -106,11 +179,14 @@
             max-width: 700px;
             height: auto;
             padding: 30px;
-            background-color: #252537; /* Dark neutral background */
+            background-color: #252537;
+            /* Dark neutral background */
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Smooth shadow */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            /* Smooth shadow */
             margin: 20px auto;
-            color: #e3e3e3; /* Neutral white for text */
+            color: #e3e3e3;
+            /* Neutral white for text */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -118,8 +194,8 @@
         #game #points {
             font-size: 30px;
             font-weight: 700;
-            color: #f8fcff; 
-            background: #0f4c75; 
+            color: #f8fcff;
+            background: #0f4c75;
             padding: 10px 25px;
             border-radius: 10px;
             text-align: center;
@@ -131,20 +207,27 @@
             width: 100%;
             text-align: center;
             margin: 20px 0;
-            color: #e5f4ff; 
+            color: #e5f4ff;
         }
 
 
-        #hint1, #hint2, #hint3, #hint4 {
+        #hint1,
+        #hint2,
+        #hint3,
+        #hint4 {
             font-size: 18px;
             margin: 10px 0;
             padding: 10px;
             border-radius: 10px;
-            background-color: #1e1e1e; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle depth */
-            visibility: hidden; /* Hides the hint initially */
-            opacity: 0; /* Ensures no visual box */
-            transition: visibility 0.3s, opacity 0.3s; /* Smooth transition when displayed */
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            /* Subtle depth */
+            visibility: hidden;
+            /* Hides the hint initially */
+            opacity: 0;
+            /* Ensures no visual box */
+            transition: visibility 0.3s, opacity 0.3s;
+            /* Smooth transition when displayed */
         }
 
         /* Display hints in the game section only when they have content */
@@ -152,8 +235,10 @@
         #hint2:not(:empty),
         #hint3:not(:empty),
         #hint4:not(:empty) {
-            visibility: visible; /* Makes the hint visible */
-            opacity: 1; /* Fades it in */
+            visibility: visible;
+            /* Makes the hint visible */
+            opacity: 1;
+            /* Fades it in */
         }
 
         /* Input section */
@@ -173,9 +258,10 @@
             max-width: 400px;
             border-radius: 8px;
             border: 1px solid #424242;
-            background-color: #1e1e1e; 
+            background-color: #1e1e1e;
             color: #e0e0e0;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6); /* Inset shadow for depth */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+            /* Inset shadow for depth */
             margin-bottom: 20px;
             transition: all 0.3s ease;
             margin-right: 20px;
@@ -183,13 +269,14 @@
         }
 
         #game #input:focus {
-            border-color: #145a88; 
+            border-color: #145a88;
             outline: none;
-            box-shadow: 0 0 10px #124b72; /* Glow effect */
+            box-shadow: 0 0 10px #124b72;
+            /* Glow effect */
         }
 
         /* Buttons */
-       /* Enhanced Guess Button Styling */
+        /* Enhanced Guess Button Styling */
         #game .button {
             width: 220px;
             height: 55px;
@@ -197,30 +284,39 @@
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            background: linear-gradient(135deg, #0f4c75, #2a7ab0); /* Gradient background */
+            background: linear-gradient(135deg, #0f4c75, #2a7ab0);
+            /* Gradient background */
             font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
             border: none;
-            border-radius: 12px; /* Rounded corners */
+            border-radius: 12px;
+            /* Rounded corners */
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Elevated shadow for depth */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for clarity */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            /* Elevated shadow for depth */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            /* Text shadow for clarity */
         }
 
         /* Hover effect for the button */
         #game .button:hover {
-            background: linear-gradient(135deg, #145a88, #43a6be); /* Brighter gradient on hover */
-            box-shadow: 0 6px 14px rgba(25, 52, 71, 0.6); /* Softer shadow on hover */
+            background: linear-gradient(135deg, #145a88, #43a6be);
+            /* Brighter gradient on hover */
+            box-shadow: 0 6px 14px rgba(25, 52, 71, 0.6);
+            /* Softer shadow on hover */
             transform: translateY(-1px);
         }
 
         /* Active effect for the button */
         #game .button:active {
-            transform: scale(0.98); /* Slightly shrink on click */
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7); /* Reduced shadow */
-            background: linear-gradient(135deg, #124b72, #297f94); /* Darker gradient on click */
+            transform: scale(0.98);
+            /* Slightly shrink on click */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+            /* Reduced shadow */
+            background: linear-gradient(135deg, #124b72, #297f94);
+            /* Darker gradient on click */
         }
 
 
@@ -238,6 +334,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -245,8 +342,10 @@
         }
 
         #word_bank {
-            display: none;           /* hidden by default, shown at the right time */
-            flex-direction: column;  /* or your layout of choice */
+            display: none;
+            /* hidden by default, shown at the right time */
+            flex-direction: column;
+            /* or your layout of choice */
             background-color: #252537;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
@@ -256,128 +355,258 @@
             justify-self: center;
             max-width: 700px;
         }
+
         #word_bank_title {
             font-size: 24px;
             font-weight: bold;
             text-decoration: none;
             margin-top: 15px;
         }
+
         .answer_list {
             /* 
                 Let's make, say, 3 columns. 
                 You can adjust column-count up or down to get the best fit.
             */
-            column-count: 3;      
-            column-gap: 1em;      
+            column-count: 3;
+            column-gap: 1em;
             list-style-type: none;
             padding: 0;
             margin: 0;
             width: 100%;
         }
+
         .answer_item {
-            display: inline-block; /* needed for multi-column to treat items individually */
-            width: 100%;           /* ensures each item uses the full column width */
+            display: inline-block;
+            /* needed for multi-column to treat items individually */
+            width: 100%;
+            /* ensures each item uses the full column width */
             font-size: 16px;
-            background-color: transparent; /* remove backgrounds for more compactness */
-            box-shadow: none;             
-            margin-bottom: 5px;     
+            background-color: transparent;
+            /* remove backgrounds for more compactness */
+            box-shadow: none;
+            margin-bottom: 5px;
             line-height: 1.3;
-            padding: 0;            /* remove extra padding */
+            padding: 0;
+            /* remove extra padding */
         }
+
         .answer_item strong {
             color: #fff;
-            font-weight: normal; /* optional: normal weight to reduce "boldness" */
+            font-weight: normal;
+            /* optional: normal weight to reduce "boldness" */
         }
-        #continue{
+
+        #continue {
             width: 220px;
             height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            background: linear-gradient(135deg, #0f4c75, #2a7ab0); /* Gradient background */
+            background: linear-gradient(135deg, #0f4c75, #2a7ab0);
+            /* Gradient background */
             font-size: 18px;
             font-weight: bold;
             text-transform: uppercase;
             border: none;
-            border-radius: 12px; /* Rounded corners */
+            border-radius: 12px;
+            /* Rounded corners */
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Elevated shadow for depth */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for clarity */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            /* Elevated shadow for depth */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            /* Text shadow for clarity */
             margin-top: 20px;
         }
-    
+        #leaderboard {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #252537;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border: 1px solid #3a3a55;
+        }
 
+        #leaderboard h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f8fcff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
 
-    </style>  
+        #leaderboardList {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        #leaderboardList li {
+            font-size: 18px;
+            margin: 8px 0;
+            padding: 12px;
+            background-color: #1e1e2f;
+            color: #e3e3e3;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        #leaderboardList li:first-child {
+            background-color: #0f4c75;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            border: 1px solid #2a7ab0;
+        }
+
+        #final_buttons button{
+            margin: 10px;
+            justify-content: center;
+        }
+        #final_buttons{
+            align-items: center;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        #play_again{
+            background-color: #26c76e;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            border: 1px solid #30cc2a;
+        }
+        #clear_leaderboard{
+            background-color: #b42f25;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+            border: 1px solid #cc2323;
+        }
+            
+    </style>
     <style>
         /* Fade-in animation */
         .fade-in {
             animation: fadeIn 1s forwards;
         }
-    
+
         /* Fade-out animation */
         .fade-out {
             animation: fadeOut 1s forwards;
         }
-    
+
         /* Keyframes for fade-in */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
-    
+
         /* Keyframes for fade-out */
         @keyframes fadeOut {
             from {
                 opacity: 1;
             }
+
             to {
                 opacity: 0;
             }
         }
 
         @keyframes highlightGreen {
-            0% { background-color: #0f4c75; }    /* Original color */
-            50% { background-color: #28a745; }   /* Green color */
-            100% { background-color: #0f4c75; }  /* Revert to original color */
+            0% {
+                background-color: #0f4c75;
+            }
+
+            /* Original color */
+            50% {
+                background-color: #28a745;
+            }
+
+            /* Green color */
+            100% {
+                background-color: #0f4c75;
+            }
+
+            /* Revert to original color */
         }
 
         .correct {
             animation: highlightGreen 1s ease;
         }
 
-    </style>  
+
+        @keyframes fadeOutList {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInList {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-out-list {
+            animation: fadeOutList 0.5s forwards;
+        }
+
+        .fade-in-list {
+            animation: fadeInList 0.5s forwards;
+        }
+    </style>
 </head>
+
 <body>
     <main>
         <div id="opening">
             <p class="intro">
-                This game will test your intuition of the etymology of English words. 
-                There is a total of 14 different word evolutions. 
-                I did my best to make them accurate, but it turns out 
-                much of the etymology of these words are very hard to track. 
-                Most of the words follow the path of Proto-Indo-European - 
+                This game will test your intuition of the etymology of English words.
+                There is a total of 14 different word evolutions.
+                I did my best to make them accurate, but it turns out
+                much of the etymology of these words are very hard to track.
+                Most of the words follow the path of Proto-Indo-European -
                 Proto-Germanic - Old English - Modern English.
-                But, a few follow different paths to add a variety.    
+                But, a few follow different paths to add a variety.
             </p>
-            <a id="startButton" class="button" href="#">Click to Start</a>
+            <div id="Name_Input_Container">
+                <input type="text" id="Name_Input" placeholder="Enter your name" autocomplete="off">
+                <button id="startButton" class="button">Click to Start</button>
+            </div>
             <p class="intro">
-                Try to guess what the modern english word is with the least amount of translations. Most are Nouns. The lower the score the better.
+                Try to guess what the modern english word is with the least amount of translations. Most are Nouns. The
+                lower the score the better.
             </p>
         </div>
-        
+
         <div id="word_bank">
             <p id="word_bank_title">Word Bank</p>
             <ul id="wordBankList" class="answer_list"></ul>
-            <a id="continue" class="button" href="#">Continue</a>
+            <button id="continue" class="button">Continue</button>
         </div>
-        
+
         <div id="game">
             <div id="score">
                 <br>
@@ -392,9 +621,13 @@
             <div id="input_div">
                 <input type="text" id="input" autocomplete="off">
                 <br>
-                <a id="guess" class="button" href="#">Guess</a>
+                <button id="guess" class="button">Guess</button>
             </div>
             <p id="questions">1/5</p>
+        </div>
+        <div id="final_buttons">
+            <button id="play_again" class="button">Play Again</button>
+            <button id="clear_leaderboard" class="button">Clear Leaderboard</button>
         </div>
         <div id="final_word">
             <p id="final_word_text"></p>
@@ -402,8 +635,13 @@
         <div id="end_screen">
             <p id="final"></p>
         </div>
+        <div id="leaderboard" style="display: none; flex-direction: column; align-items: center; justify-content: center;">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboardList" style="list-style-type: none; padding: 0;"></ul>
+        </div>
     </main>
     <script> //switch screen/ animation
+    
         var answers = [
             { proto: "méh₂tēr", meaning: "mother", protoLanguage: "mōdēr", oldLanguage: "modor", modernEnglish: "mother" },
             { proto: "bʰréh₂tēr", meaning: "brother", protoLanguage: "brōþēr", oldLanguage: "broþor", modernEnglish: "brother" },
@@ -429,18 +667,38 @@
             { proto: "gʷémtos", meaning: "path", protoLanguage: "wēgaz", oldLanguage: "weg", modernEnglish: "path" }
         ];
 
+        const game       = document.getElementById("game");
+        const final_word = document.getElementById("final_word");
+        const end_screen = document.getElementById("end_screen");
+        const final_buttons = document.getElementById("final_buttons");
+        const leaderboard = document.getElementById("leaderboard");
+
+        const guess_button = document.getElementById("guess");
+
+
         word_bank.style.display = 'none';
         game.style.display = 'none';
         end_screen.style.display = 'none';
         final_word.style.display = 'none';
+        final_buttons.style.display = 'none';
+        leaderboard.style.display = 'none';
+
+        var name = ""
 
         const startButton = document.getElementById('startButton');
-    
+
         // Add a click event listener
         startButton.addEventListener('click', function () {
-            console.log('Game Started. (WordBank)');
+            if (Name_Input.value == "") {
+                alert("Please enter your name.")
+                return
+            }
+            name = Name_Input.value.trim()
+            console.log('Game Started. (WordBank) with name: ' + name);
+            Name_Input.value = ""
+
             opening.classList.add('fade-out');
-            
+
             opening.style.display = 'none';      // hide intro
             buildWordBank();                    // build the word bank
             word_bank.style.display = 'flex';    // show the word bank
@@ -449,7 +707,7 @@
     </script>
 
     <script>
-        function buildWordBank(){
+        function buildWordBank() {
             const continueButton = document.getElementById('continue');
             const listContainer = document.getElementById('wordBankList');
             listContainer.innerHTML = '';
@@ -467,28 +725,25 @@
                     word_bank.style.display = 'none';
                     game.style.display = 'flex';
                     game.classList.add('fade-in');
-                    main_game(); 
+                    main_game();
                 }, 100);
             });
         }
 
     </script>
-    
+
     <script>
-        function main_game(){
+        function main_game() {
             console.log("Main Game Started")
             let points = 0;
 
             let hint_num = 0;
-
-            let correct = false;
 
             let question = 0;
 
             let rounds = 5;
 
             const questions = document.getElementById("questions")
-            const guess_button = document.getElementById("guess")
             const points_out = document.getElementById("points")
             points_out.textContent = `Start Guessing!`
 
@@ -499,14 +754,12 @@
 
             const input = document.getElementById("input")
 
-
-            
             shuffle(answers);
-            function shuffle(array){
+            function shuffle(array) {
                 let temp;
                 let randomIndex;
-                for(let index = array.length - 1; index > 0; index --){
-                    randomIndex = Math.floor(Math.random() * (index+1));
+                for (let index = array.length - 1; index > 0; index--) {
+                    randomIndex = Math.floor(Math.random() * (index + 1));
                     temp = array[index];
                     array[index] = array[randomIndex]
                     array[randomIndex] = temp;
@@ -515,118 +768,191 @@
 
             next()
 
-            function check_answer(){
+            function check_answer() {
                 console.log(hint_num)
 
                 /*console.log(question)
                 console.log(answers.length)
                 console.log(input.value.trim().toLowerCase())
                 points_out.textContent = `Points: ${points}`*/
-                if(input.value.trim().toLowerCase() != ""){
-                    if(input.value.trim().toLowerCase() == answers[question].modernEnglish.trim().toLowerCase()){
+                if (input.value.trim().toLowerCase() != "") {
+                    if (input.value.trim().toLowerCase() == answers[question].modernEnglish.trim().toLowerCase()) {
                         console.log("Correct")
                         points_out.textContent = `${input.value.trim()} was correct!`
                         // **Add the 'correct' class to trigger the green highlight**
                         points_out.classList.add('correct');
-                        
+
                         // **Remove the 'correct' class after the animation completes (1s)**
                         setTimeout(() => {
                             points_out.classList.remove('correct');
                         }, 1000); // Duration matches the CSS animation duration
-                        question ++
-                        questions.textContent = `${question+1}/${rounds}`
-                        hint_num =0
+                        question++
+                        questions.textContent = `${question + 1}/${rounds}`
+                        hint_num = 0
                         hint1.textContent = ""
                         hint2.textContent = ""
                         hint3.textContent = ""
                         hint4.textContent = ""
                         next()
-                    }else{
-                        points ++;
+                    } else {
+                        points++;
                         points_out.textContent = `Points: ${points}`
                         console.log("Incorrect")
                         console.log(hint_num)
-                        if(hint_num == 4){
-                            question ++;
-                            questions.textContent = `${question+1}/${rounds}`
+                        if (hint_num == 4) {
+                            question++;
+                            questions.textContent = `${question + 1}/${rounds}`
                             hint_num = 0
 
                         }
                         next()
                         return
-                        
+
                     }
-                }else{
+                } else {
                     alert("Please enter a word.")
                     console.log("input box empty")
                     return
                 }
             }
+            function handleKeyDown(event) {
+                if (event.key === 'Enter') {
+                check_answer();
+                }
+            }
+
+            // 3) attach event listeners HERE
+            guess_button.addEventListener('click', check_answer);
+            document.addEventListener('keydown', handleKeyDown);
 
 
 
-            function next(){
-                if(question == rounds){
+            function next() {
+                if (question == rounds) {
                     showEndScreen(points);
                     final_word.classList.add('fade-in');
                     final_word.style.display = 'flex';
-                    document.getElementById('final_word_text').textContent = `${input.value.trim()} was correct!`; // Set the final message
                     setTimeout(() => {
                         final_word.classList.add('fade-out');
-                        final_word.style.display = 'none';
+                        
 
-                    }, 2000);
+                    }, 3000);
+                    setTimeout(() => {
+                        final_word.style.display = 'none';
+                        final_buttons.classList.add('fade-in');
+                        final_buttons.style.display = 'flex';
+                    }, 3900);
                     return
                 }
                 input.value = ""
 
-                if(hint_num == 0){
+                if (hint_num == 0) {
                     hint1.textContent = ""
                     hint2.textContent = ""
                     hint3.textContent = ""
                     hint4.textContent = ""
                     hint1.textContent = `Proto: ${answers[question].proto}`;
                     hint_num++
-                }else if(hint_num == 1){
+                } else if (hint_num == 1) {
                     hint2.textContent = `Proto Language: ${answers[question].protoLanguage}`;
                     hint_num++
-                }else if(hint_num == 2){
+                } else if (hint_num == 2) {
                     hint3.textContent = `Old English: ${answers[question].oldLanguage}`;
                     hint_num++
-                }else if(hint_num == 3){
+                } else if (hint_num == 3) {
                     hint4.textContent = `Modern English: ${answers[question].modernEnglish}`;
                     hint_num = 4
                     //hint_num = 0
-                    questions.textContent = `${question+1}/${rounds}`
-                }else if(true){}
+                    questions.textContent = `${question + 1}/${rounds}`
+                } else if (true) { }
             }
-            
 
-            guess_button.addEventListener('click', check_answer);
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Enter') {
-                    check_answer();
-                }
-            });
+            function showEndScreen(final) {
+                document.getElementById('final_word_text').textContent = `${input.value.trim()} was correct!`; // Set the final message
+                document.removeEventListener('keydown', handleKeyDown);
+                guess_button.removeEventListener('click', check_answer);
 
-        }
+                reset_button = document.getElementById('play_again');
+                clearLeaderboard_button = document.getElementById('clear_leaderboard');
+                clearLeaderboard_button.addEventListener('click', clearLeaderboard);
+                reset_button.addEventListener('click', function () {
+                    location.reload(true);
+                });
+                
+                const game = document.getElementById('game'); //define game
+                game.classList.add('fade-out'); //fade out game
+                game.style.display = 'none'; // Hide the game screen
 
-        function showEndScreen(final) {
-            // Fade out the game screen
-            game.classList.add('fade-out');
 
-            // Wait for the fade-out animation to complete
+                // Show and fade in the end screen
+                end_screen.style.display = 'flex';
+                end_screen.classList.add('fade-in');
+                document.getElementById('final').textContent = `${name}, you got a final score of ${final}. Thanks for playing!`; // Set the final message
+
+                updateLeaderboard(final, name);
+
+                // Display the leaderboard
+                displayLeaderboard();
+
+            }
         
-            game.style.display = 'none'; // Hide the game screen
+            function updateLeaderboard(score, name) {
+                const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+                leaderboard.push({ name: name || "Anonymous", score });
+                leaderboard.sort((a, b) => a.score - b.score); // Sort by score (lower is better)
+                localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+            }
+            function displayLeaderboard() {
+                const leaderboardContainer = document.getElementById('leaderboard');
+                const leaderboardList = document.getElementById('leaderboardList');
+                leaderboardContainer.classList.add('fade-in');
+                leaderboardContainer.style.display = 'flex';
 
-            // Show and fade in the end screen
-            end_screen.style.display = 'flex';
-            end_screen.classList.add('fade-in');
-            document.getElementById('final').textContent = `You got a final score of ${final}. Thanks for playing!`; // Set the final message
-            
+                const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+                leaderboardList.innerHTML = ''; // Clear existing items
+                leaderboard.forEach((entry, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${index + 1}. ${entry.name}: ${entry.score}`;
+                    leaderboardList.appendChild(li);
+                });
+            }
+            function clearLeaderboard() {
+                const leaderboardList = document.getElementById('leaderboardList');
+                
+                // Add fade-out animation to each list item
+                Array.from(leaderboardList.children).forEach(li => {
+                    li.classList.add('fade-out-list');
+                });
+
+                // Wait for the fade-out animation to complete
+                setTimeout(() => {
+                    // Clear leaderboard after fade out
+                    localStorage.removeItem('leaderboard');
+                    
+                    // Rerender the leaderboard with fade-in animation
+                    displayLeaderboardWithFadeIn();
+                }, 500); // Matches the duration of the fade-out animation
+            }
+
+            function displayLeaderboardWithFadeIn() {
+                const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+                const leaderboardList = document.getElementById('leaderboardList');
+
+                leaderboardList.innerHTML = ''; // Clear existing items
+
+                leaderboard.forEach((entry, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${index + 1}. ${entry.name}: ${entry.score}`;
+                    li.classList.add('fade-in-list'); // Add fade-in animation
+                    leaderboardList.appendChild(li);
+                });
+            }
         }
+        
+
 
 
     </script>
 </body>
+
 </html>
